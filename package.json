@@ -1,0 +1,22 @@
+{
+  "name": "mra_backend",
+  "version": "1.0.0",
+  "description": "group project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSU-WebDev/MRA_backend.git"
+  },
+  "author": "Adeola Raj Mckenna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSU-WebDev/MRA_backend/issues"
+  },
+  "homepage": "https://github.com/CSU-WebDev/MRA_backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
