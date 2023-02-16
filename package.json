@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/CSU-WebDev/MRA_backend#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "axios": "^1.3.3",
+    "express": "^4.18.2",
+    "node": "^19.6.0"
   }
 }
