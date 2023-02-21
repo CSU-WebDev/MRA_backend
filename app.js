@@ -7,11 +7,13 @@ var key = "788aa04875544ccabbf41651231402";
 //get forecast for Orlando
 app.get('/', function(req, res){
     axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+"&q=Orlando&days=2").then(function(res){
-        //outputs Orlandos current temp in F
-        console.log("Orlando current temp: "+res.data.current.temp_f);
-        //Outputs the today and tomorrows forecast max tempeture in F
-        console.log(res.data.forecast.forecastday[0].day.maxtemp_f);
-        console.log(res.data.forecast.forecastday[1].day.maxtemp_f);
+        // //outputs Orlandos current temp in F
+        // console.log("Orlando current temp: "+res.data.current.temp_f);
+        // //Outputs the today and tomorrows forecast max tempeture in F
+        // console.log(res.data.forecast.forecastday[0].day.maxtemp_f);
+        // console.log(res.data.forecast.forecastday[1].day.maxtemp_f);
+        console.log(res.data)
+        return res.data;
         
     })
 })
