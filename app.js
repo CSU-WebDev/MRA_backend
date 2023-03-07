@@ -7,12 +7,16 @@ var key = "788aa04875544ccabbf41651231402";
 
 //send json
  app.get('/', function(req, res){
-    axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+"&q="+res.body.id).then(function(resp){
-        console.log(resp.data);
+    var temp = req.query && req.query.zip ? req.query.zip : "32926";
+    axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+"&q="+temp).then(function(resp){
+        //console.log(resp.data);
         res.json(resp.data);
     })
+    //catch error
     
 })
+
+//build own object of data needed
 
 // app.get('/', function(req, res){
 //     axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+).then(function(resp){
