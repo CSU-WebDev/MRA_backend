@@ -1,28 +1,44 @@
 var express = require('express');
 var app = express();
 var axios = require('axios');
+const cors=require('cors');
 
 var key = "788aa04875544ccabbf41651231402";
 
-//get forecast for Orlando
+//send json
  app.get('/', function(req, res){
-    axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+"&q=Orlando&days=1").then(function(resp){
-        // //outputs Orlandos current temp in F
-        // console.log("Orlando current temp: "+res.data.current.temp_f);
-        // //Outputs the today and tomorrows forecast max tempeture in F
-        // console.log(res.data.forecast.forecastday[0].day.maxtemp_f);
-        // console.log(res.data.forecast.forecastday[1].day.maxtemp_f);
-        console.log(resp.data)
-        //return res.data;
+    axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+"&q="+res.body.id).then(function(resp){
+        console.log(resp.data);
         res.json(resp.data);
     })
     
 })
 
 // app.get('/', function(req, res){
+//     axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+).then(function(resp){
+        
+//     })
+    
+// })
+
+// app.get('/', function(req, res){
 //     res.send('Hello World');
 // })
 
+//cors
+const options = {
+
+    "origin": "*",
+    
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    
+    "preflightContinue": true,
+    
+    "optionsSuccessStatus": 200
+    
+    }
+
+app.use(cors(options))
 
 
 app.listen(3000, function(){
