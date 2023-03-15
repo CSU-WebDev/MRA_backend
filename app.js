@@ -24,7 +24,26 @@ var key = "788aa04875544ccabbf41651231402";
     var temp = req.query && req.query.zip ? req.query.zip : "32926";
     axios.get("http://api.weatherapi.com/v1/forecast.json?key="+key+"&q="+temp).then(function(resp){
         //console.log(resp.data);
-        res.json(resp.data);
+        let weather_data = resp.data;
+        let hour_objects = []
+        for(hour in weather_data.forecast.forecastday.hour){
+            var x = {
+                time : hour.time,
+                tempF : hour.temp_f,
+                wind : hour.wind_mph,
+                precip : hour.precip_in,
+                humidity : hour.humidity
+            }
+
+            hours.push(x);
+        }
+
+        let forecast = {
+            location: weather_data.location,
+            hours: hour_objects
+        }
+        console.log(forecast.hours);
+        res.json(forecast);
     })
     //catch error
     
