@@ -44,8 +44,7 @@ var key = "788aa04875544ccabbf41651231402";
             location: weather_data.location.name+", "+weather_data.location.region,
             hours: hour_objects
         }
-        console.log(arrayHours);
-        res.json(forecast);
+        return res.json(forecast);
     })
     //catch error
     .catch(function (error) {
