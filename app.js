@@ -26,23 +26,35 @@ var key = "788aa04875544ccabbf41651231402";
         //console.log(resp.data);
         let weather_data = resp.data;
         let hour_objects = []
-        for(hour in weather_data.forecast.forecastday.hour){
+        // weather_data.forecast.forecastday.hour.forEach(hour => {
+        //     var x = {
+        //         time : hour.time,
+        //         tempF : hour.temp_f,
+        //         wind : hour.wind_mph,
+        //         precip : hour.precip_in,
+        //         humidity : hour.humidity
+        //     }
+
+        //     hour_objects.push(x);
+        // });
+        let arrayHours = weather_data.forecast.forecastday[0].hour
+        for(let i = 0; i < arrayHours.length;i++){
             var x = {
-                time : hour.time,
-                tempF : hour.temp_f,
-                wind : hour.wind_mph,
-                precip : hour.precip_in,
-                humidity : hour.humidity
+                time : arrayHours[i].time,
+                tempF : arrayHours[i].temp_f,
+                wind : arrayHours[i].wind_mph,
+                precip : arrayHours[i].precip_in,
+                humidity : arrayHours[i].humidity
             }
 
-            hours.push(x);
+            hour_objects.push(x);
         }
 
         let forecast = {
-            location: weather_data.location,
+            location: weather_data.location.name+", "+weather_data.location.region,
             hours: hour_objects
         }
-        console.log(forecast.hours);
+        console.log(arrayHours);
         res.json(forecast);
     })
     //catch error
