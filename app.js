@@ -42,6 +42,10 @@ var key = "788aa04875544ccabbf41651231402";
 
         let forecast = {
             location: weather_data.location.name+", "+weather_data.location.region,
+            currentTempF: weather_data.current.temp_f,
+            currentWind: weather_data.current.wind_mph,
+            currentRain: weather_data.current.precip_in,
+            currentHumidity: weather_data.current.humidity,
             hours: hour_objects
         }
         return res.json(forecast);
